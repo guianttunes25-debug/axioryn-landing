@@ -13,8 +13,8 @@
       }
     }
   </script>
-  <script type="module" crossorigin src="./assets/index-BgbYP2SO.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DMbovBiq.css">
+  <script type="module" crossorigin src="./assets/index-BMxM_RMv.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-MtmtMggq.css">
 </head>
 <body>
   <div id="office3dContainer" class="scene-root locked"></div>
@@ -96,10 +96,28 @@
   </div>
 
   <div class="sound-control">
-    <button id="soundToggle" class="sound-toggle" type="button" aria-pressed="false" aria-label="Ativar trilha ambiente">
-      🔇 Trilha desligada
-    </button>
-    <span id="soundStatus" class="sound-status" role="status" aria-live="polite">Som suave original, gerado localmente.</span>
+    <div class="sound-setting">
+      <button id="soundToggle" class="sound-toggle" type="button" aria-pressed="false" aria-label="Ativar música ambiente">
+        🎼 Música OFF
+      </button>
+      <label class="sound-volume" for="soundVolume">
+        <span>Volume</span>
+        <input id="soundVolume" type="range" min="0" max="100" step="1" value="30" aria-label="Volume da música" />
+        <output id="soundVolumeValue" for="soundVolume">30%</output>
+      </label>
+      <span id="soundStatus" class="sound-status" role="status" aria-live="polite"></span>
+    </div>
+    <div class="sound-setting">
+      <button id="chatterToggle" class="sound-toggle" type="button" aria-pressed="false" aria-label="Ativar conversas dos NPCs">
+        🗣 Conversas OFF
+      </button>
+      <label class="sound-volume" for="chatterVolume">
+        <span>Volume</span>
+        <input id="chatterVolume" type="range" min="0" max="100" step="1" value="18" aria-label="Volume das conversas" />
+        <output id="chatterVolumeValue" for="chatterVolume">18%</output>
+      </label>
+      <span id="chatterStatus" class="sound-status" role="status" aria-live="polite"></span>
+    </div>
   </div>
 
 </body>
