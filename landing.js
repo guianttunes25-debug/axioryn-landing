@@ -1,4 +1,4 @@
-import { Office3DScene } from '/src/office3d/OfficeScene.js?v=12';
+import { Office3DScene } from './src/office3d/OfficeScene.js';
 
 // ----------------------------------------------------------------------------
 // AXIORYN AI LABS — Recepção Virtual (landing pública)
