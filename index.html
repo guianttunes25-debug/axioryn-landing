@@ -13,7 +13,7 @@
       }
     }
   </script>
-  <script type="module" crossorigin src="./assets/index-BMxM_RMv.js"></script>
+  <script type="module" crossorigin src="./assets/index-B1KKp9Gf.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-MtmtMggq.css">
 </head>
 <body>
@@ -117,6 +117,17 @@
         <output id="chatterVolumeValue" for="chatterVolume">18%</output>
       </label>
       <span id="chatterStatus" class="sound-status" role="status" aria-live="polite"></span>
+    </div>
+    <div class="sound-setting">
+      <button id="drumsToggle" class="sound-toggle" type="button" aria-pressed="false" aria-label="Ativar bateria Drum and Bass">
+        🥁 Batida OFF
+      </button>
+      <label class="sound-volume" for="drumsVolume">
+        <span>Volume</span>
+        <input id="drumsVolume" type="range" min="0" max="100" step="1" value="14" aria-label="Volume da bateria" />
+        <output id="drumsVolumeValue" for="drumsVolume">14%</output>
+      </label>
+      <span id="drumsStatus" class="sound-status" role="status" aria-live="polite"></span>
     </div>
   </div>
 
