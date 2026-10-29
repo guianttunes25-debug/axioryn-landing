@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AXIORYN AI LABS — Recepção Virtual</title>
+  <meta name="description" content="AXIORYN AI LABS: automação comercial para PMEs. Entre pela porta da frente e conheça a equipe de agentes de IA que executa do diagnóstico à entrega." />
+  <link rel="stylesheet" href="landing.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="office3dContainer" class="scene-root locked"></div>
+
+  <!-- Etapa 1: calçada / fachada -->
+  <div id="heroOverlay">
+    <div class="hero-card">
+      <div class="brand-pill"><span class="brand-logo">AX</span> AXIORYN AI LABS · Recepção Virtual</div>
+      <h1>Entre pela porta da frente.</h1>
+      <p class="tagline">Automação comercial para PMEs: do diagnóstico à entrega, executada por uma equipe de agentes de IA — cada etapa auditada em tempo real dentro deste escritório.</p>
+      <button id="enterBtn" class="cta-primary" type="button">🚪 Entrar pela recepção</button>
+      <p class="hint">Arraste para explorar o prédio · Scroll para aproximar</p>
+    </div>
+    <div id="doorChip" class="door-chip">▲ PORTA PRINCIPAL</div>
+    <div class="corner-legal">© 2026 AXIORYN AI LABS</div>
+  </div>
+
+  <!-- Etapa 2: painel de recepção (Vega) -->
+  <aside id="receptionPanel" class="reception-panel hidden">
+    <header class="rp-head">
+      <div class="vega-avatar">V</div>
+      <div>
+        <div class="rp-title">Vega · Recepção &amp; Vendas</div>
+        <div class="rp-sub">agente comercial da AXIORYN AI LABS</div>
+      </div>
+      <button id="closePanelBtn" class="rp-close" type="button" title="Fechar painel">✕</button>
+    </header>
+    <div class="rp-body">
+      <p class="rp-hello">Bem-vindo(a)! Sou a <strong>Vega</strong>, recepcionista comercial da casa. Escolha uma das soluções do nosso catálogo e receba o orçamento formal por e-mail — ou agende uma demonstração de 15 minutos, sem compromisso.</p>
+      <h3 class="rp-label">Soluções &amp; valores</h3>
+      <div id="servicesGrid" class="services-grid"></div>
+      <h3 class="rp-label">Como entregamos (pipeline auditado)</h3>
+      <ol class="pipeline">
+        <li><b>Atlas</b> — diagnóstico do seu negócio</li>
+        <li><b>Nexus</b> — arquitetura da solução</li>
+        <li><b>Pixel</b> — protótipo funcional</li>
+        <li><b>Vega</b> — proposta comercial</li>
+        <li><b>Sentry</b> — auditoria de qualidade e financeira</li>
+      </ol>
+      <button id="demoBtn" class="cta-primary cta-full" type="button">📅 Agendar demonstração de 15 min (grátis)</button>
+      <p class="rp-note">Resposta em até 1 dia útil pelo e-mail <strong>contato.axioryn@gmail.com</strong>. LGPD: seus dados são usados apenas para responder este contato.</p>
+    </div>
+  </aside>
+
+  <!-- Balão ao clicar em um agente -->
+  <div id="agentToast" class="agent-toast hidden"></div>
+
+  <!-- Controles de câmera após a entrada -->
+  <div id="viewActions" class="view-actions hidden">
+    <button id="backWideBtn" class="chip-btn" type="button" title="Voltar para a vista aérea">🔭 Vista aérea</button>
+    <button id="reopenPanelBtn" class="chip-btn" type="button" title="Reabrir o painel da recepção">🛎️ Recepção</button>
+  </div>
+
+  <script type="module" src="landing.js"></script>
+</body>
+</html>

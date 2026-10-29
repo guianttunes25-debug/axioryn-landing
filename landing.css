@@ -1,0 +1,102 @@
+
+:root {
+  --bg: #060a14;
+  --ink: #e2e8f0;
+  --muted: #94a3b8;
+  --cyan: #38bdf8;
+  --amber: #fbbf24;
+  --card: rgba(13, 20, 38, 0.78);
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; overflow: hidden; }
+#office3dContainer { position: fixed; inset: 0; }
+#office3dContainer canvas { display: block; }
+#office3dContainer.locked canvas { pointer-events: none; }
+.hidden { display: none !important; }
+
+/* ---------- Etapa 1: fachada ---------- */
+#heroOverlay { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+  padding: 20px; background: radial-gradient(ellipse at center, rgba(6,10,20,.15) 0%, rgba(6,10,20,.66) 100%);
+  transition: opacity .8s ease; z-index: 10; }
+#heroOverlay.fade { opacity: 0; pointer-events: none; }
+.hero-card { text-align: center; max-width: 660px; background: var(--card);
+  border: 1px solid rgba(56,189,248,.25); border-radius: 20px; padding: 34px 30px 26px;
+  backdrop-filter: blur(10px); box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+.brand-pill { display: inline-flex; align-items: center; gap: 10px; font-size: 12px;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+  border: 1px solid rgba(148,163,184,.3); border-radius: 999px; padding: 6px 14px; margin-bottom: 18px; }
+.brand-logo { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #04121f; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; }
+.hero-card h1 { margin: 0 0 10px; font-size: clamp(28px, 5vw, 46px); letter-spacing: -.02em; }
+.tagline { margin: 0 auto 22px; max-width: 540px; color: var(--muted); font-size: 15px; line-height: 1.55; }
+.cta-primary { background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: #04121f; border: none;
+  border-radius: 14px; font-size: 16px; font-weight: 700; padding: 14px 26px; cursor: pointer;
+  box-shadow: 0 12px 30px rgba(14,165,233,.35); transition: transform .15s ease, box-shadow .15s ease; }
+.cta-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(14,165,233,.5); }
+.cta-full { width: 100%; margin-top: 6px; }
+.hint { margin: 14px 0 0; font-size: 12px; color: var(--muted); opacity: .8; }
+.door-chip { position: absolute; bottom: 46px; left: 50%; transform: translateX(-50%);
+  font-size: 12px; letter-spacing: .2em; color: var(--cyan); border: 1px solid rgba(56,189,248,.4);
+  background: rgba(6,10,20,.55); padding: 8px 18px; border-radius: 999px; animation: pulse 2.2s infinite; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(56,189,248,.35); } 50% { box-shadow: 0 0 0 10px rgba(56,189,248,0); } }
+.corner-legal { position: absolute; bottom: 12px; left: 16px; font-size: 11px; color: var(--muted); opacity: .7; }
+
+/* ---------- Etapa 2: painel da recepção ---------- */
+.reception-panel { position: fixed; top: 16px; right: 16px; bottom: 16px;
+  width: min(430px, calc(100vw - 32px)); background: var(--card);
+  border: 1px solid rgba(56,189,248,.28); border-radius: 18px; backdrop-filter: blur(12px);
+  display: flex; flex-direction: column; box-shadow: 0 30px 80px rgba(0,0,0,.55); animation: slideIn .5s ease; z-index: 9; }
+@keyframes slideIn { from { transform: translateX(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+.rp-head { display: flex; align-items: center; gap: 12px; padding: 16px 16px 12px;
+  border-bottom: 1px solid rgba(148,163,184,.18); }
+.vega-avatar { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, #d97706, #fbbf24);
+  color: #1c1005; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.rp-title { font-weight: 700; font-size: 15px; }
+.rp-sub { font-size: 12px; color: var(--muted); }
+.rp-close { margin-left: auto; background: none; border: 1px solid rgba(148,163,184,.3); color: var(--muted);
+  width: 30px; height: 30px; border-radius: 9px; cursor: pointer; }
+.rp-close:hover { color: #fff; }
+.rp-body { padding: 14px 16px 18px; overflow-y: auto; }
+.rp-hello { font-size: 13.5px; line-height: 1.55; margin: 0 0 6px; }
+.rp-label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); margin: 16px 0 10px; }
+.services-grid { display: grid; gap: 10px; }
+.svc-card { border: 1px solid rgba(148,163,184,.22); border-radius: 14px; padding: 12px 12px 11px;
+  background: rgba(15,23,42,.55); transition: border-color .15s ease, transform .15s ease; }
+.svc-card:hover { border-color: rgba(56,189,248,.55); transform: translateY(-1px); }
+.svc-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.svc-name { font-size: 13px; font-weight: 700; line-height: 1.35; }
+.svc-price { white-space: nowrap; font-weight: 700; color: var(--amber); font-size: 12px; opacity: .95; }
+.svc-benefit { margin: 6px 0 0; font-size: 12px; color: var(--muted); line-height: 1.45; }
+.svc-cta { margin-top: 10px; width: 100%; border: 1px solid rgba(56,189,248,.4);
+  background: rgba(14,165,233,.12); color: var(--cyan); border-radius: 10px; padding: 8px 10px;
+  font-size: 12.5px; font-weight: 600; cursor: pointer; }
+.svc-cta:hover { background: rgba(14,165,233,.22); }
+.pipeline { margin: 0; padding-left: 0; list-style: none; counter-reset: step; }
+.pipeline li { counter-increment: step; position: relative; padding: 7px 0 7px 34px; font-size: 12.5px;
+  color: var(--muted); border-bottom: 1px dashed rgba(148,163,184,.15); line-height: 1.45; }
+.pipeline li:last-child { border-bottom: none; }
+.pipeline li b { color: var(--ink); }
+.pipeline li::before { content: counter(step); position: absolute; left: 0; top: 6px; width: 22px; height: 22px;
+  border-radius: 8px; background: rgba(56,189,248,.15); border: 1px solid rgba(56,189,248,.4); color: var(--cyan);
+  font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.rp-note { margin: 12px 0 0; font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+
+/* ---------- Balão do agente clicado ---------- */
+.agent-toast { position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%);
+  background: rgba(8,13,26,.92); border: 1px solid rgba(56,189,248,.4); color: var(--ink);
+  padding: 10px 18px; border-radius: 12px; font-size: 13px; box-shadow: 0 18px 50px rgba(0,0,0,.5);
+  animation: slideUp .3s ease; max-width: 80vw; text-align: center; z-index: 8; }
+@keyframes slideUp { from { transform: translate(-50%, 14px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
+
+/* ---------- Controles de câmera ---------- */
+.view-actions { position: fixed; left: 16px; bottom: 16px; display: flex; gap: 8px; z-index: 5; }
+.chip-btn { background: rgba(8,13,26,.75); border: 1px solid rgba(148,163,184,.35); color: var(--ink);
+  padding: 8px 14px; border-radius: 999px; font-size: 12.5px; cursor: pointer; backdrop-filter: blur(6px); }
+.chip-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .reception-panel { top: auto; left: 0; right: 0; bottom: 0; width: 100%; max-height: 74vh; border-radius: 18px 18px 0 0; }
+  .door-chip { bottom: 26px; }
+}
