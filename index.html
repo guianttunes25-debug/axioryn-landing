@@ -14,8 +14,8 @@
       }
     }
   </script>
-  <script type="module" crossorigin src="./assets/index-BNyquDk6.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BCRd9TW-.css">
+  <script type="module" crossorigin src="./assets/index-Do9j3fGE.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-_qjwC4rf.css">
 </head>
 <body>
   <div id="office3dContainer" class="scene-root locked"></div>
@@ -50,10 +50,10 @@
       <button id="closePanelBtn" class="rp-close" type="button" title="Fechar painel">✕</button>
     </header>
     <div class="rp-body">
-      <p class="rp-hello">Bem-vindo(a)! Sou a <strong>Vega</strong>, recepcionista virtual da AXIORYN AI LABS. Explore nossas soluções e prepare um pedido de orçamento ou uma demonstração de 15 minutos, sem compromisso.</p>
+      <p class="rp-hello">Bem-vindo(a)! Sou a <strong>Vega</strong>, recepcionista virtual da AXIORYN AI LABS. Sua senha identifica a ordem de chegada. Depois, você pode aceitar o cafezinho e receber 1% de desconto sobre o valor final de venda. Seus dados só serão vinculados ao pedido com sua autorização.</p>
       <section id="coffeeOffer" class="welcome-offer coffee-offer" aria-labelledby="welcomeOfferTitle">
         <h3 id="welcomeOfferTitle">☕ Aceita um cafezinho?</h3>
-        <p>Um café virtual para acompanhar sua visita pela recepção.</p>
+        <p>Um café virtual para acompanhar sua visita. O aceite libera 1% de desconto sobre o valor final de venda; a revista digital não acumula outro desconto.</p>
         <div id="coffeeActions" class="offer-actions">
           <button id="acceptCoffeeBtn" class="offer-btn offer-btn-primary" type="button">Aceito, obrigado</button>
           <button id="declineCoffeeBtn" class="offer-btn" type="button">Agora não</button>
@@ -184,7 +184,12 @@
     </label>
     <span id="environmentModeStatus" class="chip-btn environment-status" role="status" aria-live="polite" title="Ambiente sincronizado com o horário de Sorocaba"></span>
     <div class="weather-row">
-      <span id="weatherStatus" class="weather-status" role="status" aria-live="polite">Clima de Sorocaba: carregando…</span>
+      <span id="weatherIcon" class="weather-icon" aria-hidden="true">⛅</span>
+      <strong id="weatherTemperature" class="weather-temperature">--°C</strong>
+      <span class="weather-details">
+        <span id="weatherCondition" class="weather-condition" role="status" aria-live="polite">Sorocaba · carregando clima…</span>
+        <span id="weatherStatus" class="weather-status"></span>
+      </span>
       <a id="weatherSource" class="weather-source" href="https://open-meteo.com/" target="_blank" rel="noreferrer" hidden>Open-Meteo</a>
     </div>
     <button id="reopenPanelBtn" class="chip-btn" type="button" title="Reabrir o painel da recepção">🛎️ Recepção</button>
