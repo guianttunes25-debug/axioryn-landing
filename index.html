@@ -14,8 +14,8 @@
       }
     }
   </script>
-  <script type="module" crossorigin src="./assets/index-Do9j3fGE.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-_qjwC4rf.css">
+  <script type="module" crossorigin src="./assets/index-CP6556bi.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BNIFnhsm.css">
 </head>
 <body>
   <div id="office3dContainer" class="scene-root locked"></div>
@@ -50,10 +50,10 @@
       <button id="closePanelBtn" class="rp-close" type="button" title="Fechar painel">✕</button>
     </header>
     <div class="rp-body">
-      <p class="rp-hello">Bem-vindo(a)! Sou a <strong>Vega</strong>, recepcionista virtual da AXIORYN AI LABS. Sua senha identifica a ordem de chegada. Depois, você pode aceitar o cafezinho e receber 1% de desconto sobre o valor final de venda. Seus dados só serão vinculados ao pedido com sua autorização.</p>
+      <p class="rp-hello">Bem-vindo(a)! Sou a <strong>Vega</strong>, recepcionista virtual da AXIORYN AI LABS. Sua senha identifica a ordem de chegada. Aceite o cafezinho e conheça nossa revista de produtos para continuar sua visita. Seus dados só serão vinculados ao pedido com sua autorização.</p>
       <section id="coffeeOffer" class="welcome-offer coffee-offer" aria-labelledby="welcomeOfferTitle">
         <h3 id="welcomeOfferTitle">☕ Aceita um cafezinho?</h3>
-        <p>Um café virtual para acompanhar sua visita. O aceite libera 1% de desconto sobre o valor final de venda; a revista digital não acumula outro desconto.</p>
+        <p>Um café virtual para acompanhar sua visita.</p>
         <div id="coffeeActions" class="offer-actions">
           <button id="acceptCoffeeBtn" class="offer-btn offer-btn-primary" type="button">Aceito, obrigado</button>
           <button id="declineCoffeeBtn" class="offer-btn" type="button">Agora não</button>
@@ -99,8 +99,34 @@
           <select id="requestType" name="request_type" required>
             <option value="Orçamento">Receber um orçamento</option>
             <option value="Demonstração">Agendar uma demonstração de 15 minutos</option>
+            <option value="AXIORYN Smart Supply">Solicitar produto, locação ou serviço</option>
           </select>
         </label>
+        <div id="supplyRequestFields" class="supply-request-fields hidden">
+          <label>O que sua empresa precisa?
+            <input id="supplyItem" name="supply_item" type="text" maxlength="300" placeholder="Ex.: furadeira profissional, 3 unidades" />
+          </label>
+          <label>Modalidade
+            <select id="supplyModality" name="supply_modality">
+              <option value="Compra">Compra</option>
+              <option value="Locação">Locação</option>
+              <option value="Serviço">Serviço</option>
+            </select>
+          </label>
+          <label>Quantidade
+            <input id="supplyQuantity" name="supply_quantity" type="number" min="1" max="100000" value="1" />
+          </label>
+          <label>Período de locação (dias)
+            <input id="supplyPeriod" name="supply_period_days" type="number" min="1" max="3650" />
+          </label>
+          <label>Região de entrega ou atendimento
+            <input id="supplyRegion" name="supply_region" type="text" maxlength="150" placeholder="Cidade/UF" />
+          </label>
+          <label class="supply-request-wide">Especificações e observações
+            <textarea id="supplyDetails" name="supply_details" maxlength="1000" rows="2"></textarea>
+          </label>
+          <p class="supply-request-note">O pedido será preparado como rascunho de e-mail para sua revisão. Disponibilidade, preço e prazo dependem de confirmação manual; este formulário não fecha contrato nem envia pedido automaticamente.</p>
+        </div>
         <label class="consent-check">
           <input id="leadDataConsent" name="consent" type="checkbox" />
           <span>Opcional: autorizo registrar meus dados no painel local e vinculá-los à senha para acompanhar este pedido.</span>
@@ -138,12 +164,48 @@
           <h3 id="catalogProductsTitle">Produtos e soluções digitais</h3>
           <p>Escolha uma ideia e solicite um orçamento sem compromisso. Valores e escopo são definidos conforme a necessidade da empresa.</p>
         </div>
+        <div class="catalog-industry-picker">
+          <label for="catalogIndustryFilter">Área do seu negócio</label>
+          <select id="catalogIndustryFilter" aria-describedby="catalogRecommendation">
+            <option value="">Detectar pelo segmento do formulário</option>
+          </select>
+          <p id="catalogRecommendation" role="status" aria-live="polite"></p>
+        </div>
         <div id="catalogProducts" class="magazine-products"></div>
+        <section class="magazine-supply" aria-labelledby="smartSupplyTitle">
+          <span class="cover-eyebrow">AXIORYN SMART SUPPLY</span>
+          <h3 id="smartSupplyTitle">Precisa de um produto, equipamento ou serviço?</h3>
+          <p id="smartSupplyIndustry" class="magazine-supply-industry"></p>
+          <p id="smartSupplyExamples" class="magazine-supply-examples"></p>
+          <div id="supplyCatalogGroups" class="supply-catalog-groups"></div>
+          <p class="magazine-supply-disclaimer">A AXIORYN coordena a busca junto a fornecedores e parceiros. Estoque, disponibilidade, preço e prazo só são informados após confirmação.</p>
+          <button id="requestSupplyBtn" class="cta-primary" type="button">Solicitar produto, locação ou serviço</button>
+        </section>
       </section>
       <footer class="magazine-footer">
         <span>AXIORYN AI LABS</span>
         <span>Seu problema é o ponto de partida.</span>
       </footer>
+    </div>
+  </dialog>
+
+  <dialog id="solutionsPreviewDialog" class="solutions-preview-dialog" aria-labelledby="solutionsPreviewTitle">
+    <div class="solutions-preview-shell">
+      <header class="solutions-preview-header">
+        <div>
+          <span class="solutions-preview-eyebrow">AXIORYN SOLUTIONS PREVIEW</span>
+          <span class="solutions-preview-demo-label">DEMONSTRAÇÃO · DADOS FICTÍCIOS</span>
+        </div>
+        <button id="closeSolutionsPreviewBtn" class="catalog-close" type="button" aria-label="Voltar ao catálogo" title="Voltar ao catálogo">✕</button>
+      </header>
+      <main class="solutions-preview-main">
+        <p id="solutionsPreviewIndustry" class="solutions-preview-industry"></p>
+        <h2 id="solutionsPreviewTitle"></h2>
+        <p id="solutionsPreviewDescription" class="solutions-preview-description"></p>
+        <section id="solutionsPreviewContent" class="solutions-preview-content" aria-live="polite"></section>
+        <p class="solutions-preview-disclaimer">Prévia local com dados fictícios. Esta demonstração não salva nem envia informações e não confirma agendas, estoque, entregas ou imóveis reais.</p>
+        <button id="backToCatalogBtn" class="solutions-preview-back" type="button">Voltar ao catálogo</button>
+      </main>
     </div>
   </dialog>
 
@@ -163,6 +225,7 @@
         <option value="rear">Vista traseira</option>
         <option value="shopping">Shopping</option>
         <option value="office">Escritório</option>
+        <option value="reception">Recepção</option>
         <option value="rooftop">Rooftop</option>
         <option value="exploded">Vista explodida</option>
       </select>
